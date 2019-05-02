@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h3>Purchase</h3>
+<h4>#{purchaseController.customer.product.name}  #{purchaseController.customer.product.price}</h4>
+<h:form>
+    Enter your credit card number:
+    <h:inputText value="#{purchaseController.customer.creditCard}" required="true" id="creditCard" requiredMessage="Please, enter your credit card number!" validatorMessage="Enter 16 digit number!">
+        <f:validateRegex pattern="\b\d{4}[ -]?\d{4}[ -]?\d{4}[ -]?\d{4}\b"/>
+    </h:inputText>
+    <h:message for="creditCard" style="color: red;"/>
+    <br/>
+    <h:commandButton value="continue" action="confirm"/>
+    <h:commandButton value="cancel" action="customerView"/>
+</h:form>
+</html>
